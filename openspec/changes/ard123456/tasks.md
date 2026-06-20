@@ -41,10 +41,10 @@
 
 > 此环用 `/sdd-review ard123456` 进入，通过后用 `/sdd-archive ard123456` 收尾。包含负面路径演示。
 
-- [ ] 5.1 **跑 openspec validate --strict（happy path）**：`openspec validate --strict ard123456` 退出码 0。完成判定：退出码 0。
-- [ ] 5.2 **构造 validate 失败演示**：临时把 `openspec/changes/ard123456/specs/sdd-demo/spec.md` 改坏——推荐做法：把某个 `#### Scenario: ...` 改成 `### Scenario: ...`（多一个 `#`，违反 openspec scenario 必须用 4 个 `#` 的约束）。完成判定：改完后 `openspec validate --strict ard123456` 退出码非 0，输出含明确的格式错误信息。
-- [ ] 5.3 **捕获失败输出**：把 5.2 的 validate 完整失败输出 + 改坏的 diff hunk 文本化保存（临时贴到剪贴板或 `/tmp/ard123456-failure-demo.txt`，**勿 commit 改坏的 spec**）。完成判定：失败输出文本已保存，内容含失败原因行号。
-- [ ] 5.4 **还原 spec**：`git checkout -- openspec/changes/ard123456/specs/sdd-demo/spec.md` 或手动还原。完成判定：`git status` 显示 spec 文件无改动，`openspec validate --strict ard123456` 再次退出码 0。
+- [x] 5.1 **跑 openspec validate --strict（happy path）**：`openspec validate --strict ard123456` 退出码 0。完成判定：退出码 0。**[done]** 退出码 0。
+- [x] 5.2 **构造 validate 失败演示**：临时把 `openspec/changes/ard123456/specs/sdd-demo/spec.md` 改坏——推荐做法：把某个 `#### Scenario: ...` 改成 `### Scenario: ...`（多一个 `#`，违反 openspec scenario 必须用 4 个 `#` 的约束）。完成判定：改完后 `openspec validate --strict ard123456` 退出码非 0，输出含明确的格式错误信息。**[done]** 推荐做法未触发失败（见 RETRO 矛盾 4），改用"把 `## ADDED Requirements` 改为 `## Random Invalid Title`"成功触发，退出码 1。
+- [x] 5.3 **捕获失败输出**：把 5.2 的 validate 完整失败输出 + 改坏的 diff hunk 文本化保存（临时贴到剪贴板或 `/tmp/ard123456-failure-demo.txt`，**勿 commit 改坏的 spec**）。完成判定：失败输出文本已保存，内容含失败原因行号。**[done]** 落盘到 `openspec/changes/ard123456/failure-demo-evidence.md`（含 diff、退出码、完整输出）。
+- [x] 5.4 **还原 spec**：`git checkout -- openspec/changes/ard123456/specs/sdd-demo/spec.md` 或手动还原。完成判定：`git status` 显示 spec 文件无改动，`openspec validate --strict ard123456` 再次退出码 0。**[done]** 用 `cp /tmp/ard123456-spec-backup.md` 还原；validate 退出码 0。
 - [ ] 5.5 **推送分支**：`git push -u origin 002-ard123456`。完成判定：push 成功，远端可见该分支。
 - [ ] 5.6 **创建 PR**：`gh pr create --title "feat(ard123456): add sdd-demo capability via SDD 5-ring workflow"`，body 必须包含：(a) `Closes #2`；(b) 5.3 捕获的 validate 失败输出原文（标记为"失败路径演示证据"）；(c) Spec/Plan/Apply/Review 四段产物链接。完成判定：PR 创建成功，issue #2 在 PR 中显示"Linked"状态。
 - [ ] 5.7 **PR review 与 merge**：等审核者 approve（本 demo 可自审），merge 到 main。完成判定：PR 状态为 Merged，issue #2 自动 Closed。

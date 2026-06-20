@@ -45,3 +45,21 @@
 
 **残留**：4 个更早的 baseline 违反 commit（`6515542 plan(...)` / `55dba82 plan(...)` / `f4890d8 spec(...)` / `3b0190c task(...)`）按 RETRO 矛盾 1 的"不追溯已推送历史"立场保留不改。
 
+### 矛盾 4：spec scenario 4 的失败触发条件与 openspec 实际行为漂移
+
+**发现时间**：sdd-review 阶段执行 tasks.md 5.2（失败路径演示）。
+
+**矛盾描述**：
+- spec scenario 4 列举的 validate 失败触发条件："requirement 缺少 scenario、scenario 误用 3 个 `#`、proposal 中 capability 名与 spec 文件路径不一致"。
+- 实测前两个**未触发**：
+  - 删除 scenario 的 WHEN/THEN 内容 → `openspec validate --strict` 仍通过
+  - 把 `#### Scenario:` 改为 `### Scenario:`（少一个 `#`）→ validate 仍通过
+- 实测可靠触发的方式：破坏 delta section header（如把 `## ADDED Requirements` 改成 `## Random Invalid Title`）。
+
+**根本原因**：spec scenario 在 Ring 1 写作时基于对 openspec strict 行为的推测，没有实测验证。openspec strict 实际只校验"delta section 结构"，对 scenario 内部格式（`#` 数量、WHEN/THEN 必填）较宽松。
+
+**本次处理**：tasks.md 5.2 改用"破坏 delta header"方式触发失败，failure-demo-evidence.md 记录完整证据。spec scenario 文本不修（Ring 1 frozen input）。
+
+**建议修复**（给 oh-my-sdd 维护者 / 后续 spec 模板）：scenario 描述失败条件时应基于实测，避免"想当然"的触发条件列表。
+
+
