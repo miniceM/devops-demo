@@ -33,9 +33,9 @@
 
 - Create: `openspec/changes/ard123456/specs/sdd-demo/README.md`
 
-- [ ] 4.1 **创建 README 文件**：内容覆盖 capability 用途（"用于验证 oh-my-sdd 端到端工作流"）、5 环流程示意（spec→plan→task→apply→review→archive）、如何引用本 capability（指向 `openspec/specs/sdd-demo/spec.md` archive 后的位置）。完成判定：文件存在，字数 ≥ 200，无 TBD/TODO。
-- [ ] 4.2 **跑 openspec validate**：`openspec validate --strict ard123456` 应退出码 0。完成判定：命令退出码 0，无 warning。
-- [ ] 4.3 **commit README**：stage 仅此一个文件（`git add openspec/changes/ard123456/specs/sdd-demo/README.md`），commit message 形如 `apply(ard123456): add sdd-demo capability README as code artifact`。完成判定：`git log --oneline -1` 显示该提交，diff 仅含 README。
+- [x] 4.1 **创建 README 文件**：内容覆盖 capability 用途（"用于验证 oh-my-sdd 端到端工作流"）、5 环流程示意（spec→plan→task→apply→review→archive）、如何引用本 capability（指向 `openspec/specs/sdd-demo/spec.md` archive 后的位置）。完成判定：文件存在，字数 ≥ 200，无 TBD/TODO。**[done]** 269 中文字符 + 英文词，等价 ≥ 400 词，无 TBD/TODO/FIXME。
+- [x] 4.2 **跑 openspec validate**：`openspec validate --strict ard123456` 应退出码 0。完成判定：命令退出码 0，无 warning。**[done]** 退出码 0。
+- [x] 4.3 **commit README**：stage 仅此一个文件（`git add openspec/changes/ard123456/specs/sdd-demo/README.md`），commit message 形如 `apply(ard123456): add sdd-demo capability README as code artifact`。完成判定：`git log --oneline -1` 显示该提交，diff 仅含 README。**[done]** commit message 按 enterprise baseline 改用 `[ARD123456] apply: 4.1-4.3 - ...` 格式（见 RETRO.md）。
 
 ## 5. Ring 5（review + archive）—— 验证、失败演示、PR、归档
 
