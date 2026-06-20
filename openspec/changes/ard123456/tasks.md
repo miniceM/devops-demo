@@ -21,9 +21,9 @@
 
 > 此环用 `/sdd-task ard123456` 进入。本任务的目的不是"写代码"，而是把 tasks.md 中剩余的粗任务（4、5）逐个落到 commit 级别。
 
-- [ ] 3.1 **从 tasks.md 取下个未完成任务**：确认是任务 4（apply 环）。完成判定：`/sdd-task` 输出"下一个任务是 4.1"或类似。
-- [ ] 3.2 **为 apply 环新建子分支**（如需）：当前已在 `002-ard123456`，无需再开分支；如 oh-my-sdd 强制要求子分支命名（如 `003-ard123456-apply`），则按其规则创建。完成判定：分支命名符合 oh-my-sdd 约定。
-- [ ] 3.3 **填写任务 4、5 的执行细节**：在 `/sdd-task` 交互中确认 README 的具体内容大纲、validate 失败演示的具体改坏点（从 design R4 列的 3 个选项中挑 1 个：删 scenario / 误用 3 个 `#` / capability 名不一致）。完成判定：执行细节被 `/sdd-task` 写入工作笔记或本 tasks.md 的注释里。
+- [x] 3.1 **从 tasks.md 取下个未完成任务**：确认是任务 4（apply 环）。完成判定：`/sdd-task` 输出"下一个任务是 4.1"或类似。**[skipped]** task_phase=skipped 模式下不细化，直接进 apply；下个任务确认为 4.1。
+- [x] 3.2 **为 apply 环新建子分支**（如需）：当前已在 `002-ard123456`，无需再开分支；如 oh-my-sdd 强制要求子分支命名（如 `003-ard123456-apply`），则按其规则创建。完成判定：分支命名符合 oh-my-sdd 约定。**[skipped]** 单分支策略（design D4），不开子分支。
+- [x] 3.3 **填写任务 4、5 的执行细节**：在 `/sdd-task` 交互中确认 README 的具体内容大纲、validate 失败演示的具体改坏点（从 design R4 列的 3 个选项中挑 1 个：删 scenario / 误用 3 个 `#` / capability 名不一致）。完成判定：执行细节被 `/sdd-task` 写入工作笔记或本 tasks.md 的注释里。**[skipped]** README 大纲已在 tasks.md 4.1 充分规定；validate 改坏点定下来用"误用 3 个 `#`"（任务 5.2 已含具体操作）。
 
 ## 4. Ring 4（apply）—— 创建 sdd-demo capability 的 README 并 commit
 
