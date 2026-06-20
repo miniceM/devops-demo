@@ -2,7 +2,7 @@
 
 ## 用途
 
-`sdd-demo` 是一个**演示型 capability**，用于验证 [oh-my-sdd](https://github.com/) 工作流能否在当前仓库端到端跑通。它本身不提供业务功能，存在的唯一目的是把 SDD（Spec-Driven Development）五环流程在真实 git 仓库里完整走一遍——spec → plan → task → apply → review → archive——确认每一环的产物、约束、钩子都能按设计工作。
+`sdd-demo` 是一个**演示型 capability**，用于验证 oh-my-sdd 工作流能否在当前仓库端到端跑通。它本身不提供业务功能，存在的唯一目的是把 SDD（Spec-Driven Development）五环流程在真实 git 仓库里完整走一遍——spec → plan → task → apply → review → archive——确认每一环的产物、约束、钩子都能按设计工作。
 
 引入这个 capability 后，后续真正业务功能的作者可以把它当作"如何用 SDD 引入新 capability"的基线参考。
 
